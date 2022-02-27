@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv sh
+
+. /app/update_nsg.sh
+
+CurrentIpAddress=$(getPublicIpAddress)
+
+echo "Updating Azure NSG rule $_rule_name to $CurrentIpAddress..."
+update=$(update_nsg $CurrentIpAddress)
+
+if [ "$update" == "null" ]; then
+echo "ERROR: Failed to update Azure NSG rule $_rule_name to $CurrentIpAddress"
+else
+echo "Azure NSG $_rule_name ($CurrentIpAddress) updated successfully."
+fi

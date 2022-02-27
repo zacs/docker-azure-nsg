@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv sh
+
+. /app/update_nsg.sh
+
+# Check we can get the current public ip address
+PublicIpAddress=$(getPublicIpAddress)
+
+if [ "$PublicIpAddress" == "" ]; then
+  echo "----------------------------------------------------------------"
+  echo "ERROR: Failed To Get Public IPv4 Address"
+  echo "----------------------------------------------------------------"
+  exit 1
+fi
+
+echo "$CRON	/etc/cont-init.d/50-update_nsg" > /var/spool/cron/crontabs/root
