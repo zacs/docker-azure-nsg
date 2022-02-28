@@ -6,7 +6,7 @@ COPY update_nsg.sh /update_nsg.sh
 RUN chmod +x ./update_nsg.sh
 
 # Install dig and cron
-RUN apk update && apk add --no-cache bind-tools cron
+RUN apk update && apk add --no-cache bind-tools
 
 # Add cronjob
 RUN crontab -l | { cat; echo "*/5 * * * * bash /update_nsg.sh"; } | crontab -
