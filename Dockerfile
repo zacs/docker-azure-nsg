@@ -11,4 +11,4 @@ RUN apk update && apk add --no-cache bind-tools
 # Add cronjob
 RUN crontab -l | { cat; echo "*/5 * * * * bash /update_nsg.sh"; } | crontab -
 
-CMD [ “crond”, “-l”, “2”, “-f” ]
+CMD [ "exec", “crond”, “-l”, “2”, “-f” ]
