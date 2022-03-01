@@ -1,0 +1,16 @@
+version: '3'
+services:
+  azure_nsg_updater:
+    build: .
+    restart: always
+    container_name: azure_nsg_updater
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      AZURE_PASSWORD: "placeholder"
+      AZURE_APP_ID: "placeholder"
+      AZURE_TENANT_ID: "placeholder"
+      RULE_PRIORITY: 300
+      RULE_INBOUND_PORT: 22
+      NSG_RESOURCE_GROUP_NAME: placeholder
+      NSG_NAME: placeholder
