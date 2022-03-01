@@ -38,6 +38,6 @@ az network nsg rule update -g ${_rule_nsg_resource_group} --nsg-name ${_rule_nsg
             --source-address-prefixes ${_rule_public_ip} --source-port-ranges '*' \
             --destination-address-prefixes '*' --destination-port-ranges ${_rule_port} \
             --access Allow --protocol '*' \
-            --description '${_rule_description}' --verbose
+            --description \'${_rule_description}\' --verbose
 # output
 echo "Rule update complete."
