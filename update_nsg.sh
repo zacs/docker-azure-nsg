@@ -30,7 +30,7 @@ echo "_rule_port: ${_rule_port}"
 echo "_rule_priority: ${_rule_priority}"
 
 _rule_name=docker_update_nsg-${_rule_priority}
-_rule_description="Updated rule from docker azure-nsg image at" + $(date)
+_rule_description="Updated rule from docker azure-nsg image at $(date)"
 
 echo "_rule_name: ${_rule_name}"
 az network nsg rule update -g ${_rule_nsg_resource_group} --nsg-name ${_rule_nsg_name} \
